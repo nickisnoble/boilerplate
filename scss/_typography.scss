@@ -1,0 +1,164 @@
+body {
+	font-size: 100%;
+	font-family: $serif-stack;
+	font-weight: 200;
+	line-height: 1.5;
+	color:$dark;
+}
+
+// test only
+html { 
+	// Baseline overlay for vertical rhythm checks
+	// background-image: url(http://basehold.it/i/24); // 24px baseline 
+	// background-image: url(http://basehold.it/i/24/ff0000); // with Hex colour 
+	// background-image: url(http://basehold.it/i/24/255/0/0); // with RGB colour 
+}
+// html>body {
+// 	font-size: 16px;
+// 	line-height:24px;
+// }
+// end test
+
+// **********************
+// Font Classes
+// **********************
+.sans-serif{font-family: $sans-stack;}
+.serif{font-family: $serif-stack;}
+.caption{font-family: $caption-stack;}
+
+.uppercase{text-transform: uppercase;}
+.lowercase{text-transform: lowercase;}
+.capitalize{text-transform: capitalize;}
+
+.brand{ font-family: $brand-stack; }
+// **********************
+// Paragraphs & links
+// **********************
+p {
+	line-height:1.5em;
+	font-size:1em;
+	margin-top:1.5em;
+	margin-bottom:1.5em;
+}
+a{
+	text-decoration: none;
+	color: $primary;
+	&:hover{
+		color:$highlight;
+	}
+}
+
+// **********************
+// Headings
+// **********************
+
+// Fonts
+h1,h2,h3,h4,h5,h6{
+	font-family: $sans-stack;
+}
+.subheading{
+	font-family: $caption-stack;
+	text-transform: none;
+	font-weight: 500;
+}
+
+// Weights
+
+h1{
+	font-weight: 700;
+}
+h2{
+	font-weight: 500;
+}
+h1,h2{
+	&.subheading{
+		font-size:1.484375em;      // 23.75 / 16 = 1.484375
+		line-height:1.01052632em;  // 24 / 23.75 = 1.01052632
+		margin-top:-1.01052632em;
+		margin-bottom:1.01052632em;
+	}
+}
+h3,h4{
+	font-weight: 400;
+	&.subheading{
+		line-height:1.5em;
+		font-size:1em;
+		margin-top:-1.5em;
+		margin-bottom:1.5em;
+
+	}
+}
+h5,h6{
+	font-weight: 500;
+}
+
+// Sizes
+
+// Note that the heading classes (i.e. '.h1') are purely for size and spacing purposes, fonts are not carried over.
+// Fonts are set for heading elements above.
+h1,.h1 { 
+	font-size:4em;             // 64 / 16 = 4
+	line-height:0.75em;       // 24 / 64 = 0.375
+	margin-top:0.75em;         // 0.375 * 2 = 0.75
+	margin-bottom:0.75em;
+	// h1 should never be a subheading.
+}
+h2,.h2 { 
+	font-size:2.96875em;       // 47.5 / 16 = 2.96875
+	line-height:1.01052632em;  // 24 / 47.5 = 0.50526316
+	margin-top:0.50526316em;
+	margin-bottom:0.50526316em;
+}
+h3,.h3 { 
+	font-size:2em;             // 32 / 16 = 2
+	line-height:0.75em;        // 24 / 32 = 0.75
+	margin-top:0.75em;
+	margin-bottom:0.75em;
+}
+h4,.h4 { 
+	font-size:1.484375em;      // 23.75 / 16 = 1.484375
+	line-height:1.01052632em;  // 24 / 23.75 = 1.01052632
+	margin-top:1.01052632em;
+	margin-bottom:1.01052632em;
+}
+h5,.h5 {
+	line-height:1.5em;
+	font-size:1em;
+	margin-top:1.5em;
+	margin-bottom:-1.5em;
+	// Shouldn't have sub headings. To little.
+}
+h6,.h6 {
+	font-size:0.8em;           // 80% of 16 = 12.8 = 0.8
+	line-height:1.875em;           // 24 / 12.8 = 1.875
+	margin-top:1.875em;
+	margin-bottom:-1.875em;	
+	// Also shouldn't have sub headings. To little.
+}
+small, .small{
+	font-size:0.8em;           // 80% of 16 = 12.8 = 0.8
+	line-height:1.5em;           // 24 / 12.8 = 1.875
+	margin-top:1.875em;
+	margin-bottom:1.875em;
+	// Really shouldn't have sub headings. It's meant for sub-text!
+}
+hr{
+	border: 0;
+	border-top: 1px solid $medium;
+	margin-top: -1.5em; 
+	margin-bottom: -1px; // Offset the height of the border to maintain vertical rhythm
+}
+ol,ul{
+	margin-top:1.5em;
+	margin-bottom:1.5em;
+	padding-left: 0; 
+	ol, ul{
+		margin-top:0;
+		margin-bottom:0;
+		padding-left: 1.5em; 
+	}
+}
+dl{
+	margin-top:1.5em;
+	margin-bottom:1.5em;
+}

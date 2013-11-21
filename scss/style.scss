@@ -1,0 +1,24 @@
+/*
+Theme Name: 
+Theme URI: 
+Author: Alex Handler & Nick Noble
+Author URI: 
+Description: 
+Version: 1.0
+Tags: 
+*/
+
+// This file imports and concatenates you scss, BRO.
+
+/* Normalize - reset all the shit */
+
+@import 'normalize';
+
+// Settings - Vars, placeholders, mixins, & global (*) styles
+@import 'settings';
+
+/* Typography - Words and letters and stuff */
+@import 'typography';
+
+/* Seamless - Yo doge I heard you like grids... */
+@import 'seamless';

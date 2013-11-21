@@ -1,0 +1,128 @@
+// grid components
+.container{
+    width: 90%;
+    margin: 0 auto;
+    @include clearfix();
+}
+.grid_part{
+    float: left;
+    padding-left: $spacing-unit / 2;
+    padding-right: $spacing-unit / 2;
+    .grid_part{
+        padding: 0;
+    }
+}
+
+
+@mixin grid-setup($namespace: "", $fleft: ".flush-left", $fright: ".flush-right") {
+
+    /* Whole */
+    .#{$namespace}one-whole         { width:$whole; }	
+
+    /* Halves */
+    .#{$namespace}one-half          { width:$half; }
+        
+    /* Thirds */
+    .#{$namespace}one-third         { width:$third; }
+    .#{$namespace}two-thirds        { width:$third*2; }
+
+    /* Fourths */
+    .#{$namespace}one-fourth        { width:$fourth; }
+    .#{$namespace}two-fourths       { @extend .#{$namespace}one-half; }
+    .#{$namespace}three-fourths     { width:$fourth*3; }
+        
+    /* Fifths */
+    .#{$namespace}one-fifth         { width:$fifth; }
+    .#{$namespace}two-fifths        { width:$fifth*2; }
+    .#{$namespace}three-fifths      { width:$fifth*3; }
+    .#{$namespace}four-fifths       { width:$fifth*4; }
+        
+    /* Sixths */
+    .#{$namespace}one-sixth         { width:$sixth; }
+    .#{$namespace}two-sixths        { @extend .#{$namespace}one-third; }
+    .#{$namespace}three-sixths      { @extend .#{$namespace}one-half; }
+    .#{$namespace}four-sixths       { @extend .#{$namespace}two-thirds; }
+    .#{$namespace}five-sixths       { width:$sixth*5; }
+        
+    /* Eighths */
+    .#{$namespace}one-eighth        { width:$eigth; }
+    .#{$namespace}two-eighths       { @extend .#{$namespace}one-fourth; }
+    .#{$namespace}three-eighths     { width:$eigth*3; }
+    .#{$namespace}four-eighths      { @extend .#{$namespace}one-half; }
+    .#{$namespace}five-eighths      { width:$eigth*5; }
+    .#{$namespace}six-eighths       { @extend .#{$namespace}three-fourths; }
+    .#{$namespace}seven-eighths     { width:$eigth*7; }
+
+    /* Tenths */
+    .#{$namespace}one-tenth         { width:$tenth; }
+    .#{$namespace}two-tenths        { @extend .#{$namespace}one-fifth; }
+    .#{$namespace}three-tenths      { width:$tenth*3; }
+    .#{$namespace}four-tenths       { @extend .#{$namespace}two-fifths; }
+    .#{$namespace}five-tenths       { @extend .#{$namespace}one-half; }
+    .#{$namespace}six-tenths        { @extend .#{$namespace}three-fifths; }
+    .#{$namespace}seven-tenths      { width:$tenth*7; }
+    .#{$namespace}eight-tenths      { @extend .#{$namespace}four-fifths; }
+    .#{$namespace}nine-tenths       { width:$tenth*9; }
+
+    /* Twelfths */
+    .#{$namespace}one-twelfth       { width:$twelfth; }
+    .#{$namespace}two-twelfths      { @extend .#{$namespace}one-sixth; }
+    .#{$namespace}three-twelfths    { @extend .#{$namespace}one-fourth; }
+    .#{$namespace}four-twelfths     { @extend .#{$namespace}one-third; }
+    .#{$namespace}five-twelfths     { width:$twelfth*5; }
+    .#{$namespace}six-twelfths      { @extend .#{$namespace}one-half; }
+    .#{$namespace}seven-twelfths    { width:$twelfth*7; }
+    .#{$namespace}eight-twelfths    { @extend .#{$namespace}two-thirds; }
+    .#{$namespace}nine-twelfths     { @extend .#{$namespace}three-fourths; }
+    .#{$namespace}ten-twelfths      { @extend .#{$namespace}five-sixths; }
+    .#{$namespace}eleven-twelfths   { width:$twelfth*11; }
+        
+    // Offsets
+    .#{$namespace}offset-one-twelfth       { margin-left:$twelfth; }
+    .#{$namespace}offset-one-sixth         { margin-left:$sixth; }
+    .#{$namespace}offset-one-fourth        { margin-left:$fourth; }
+    .#{$namespace}offset-one-third         { margin-left:$third; }
+    .#{$namespace}offset-five-twelfths     { margin-left:$twelfth*5; }
+    .#{$namespace}offset-one-half          { margin-left:$half; }
+    .#{$namespace}offset-seven-twelfths    { margin-left:$twelfth*7; }
+    .#{$namespace}offset-two-thirds        { margin-left:$third*2; }
+    .#{$namespace}offset-three-fourths    { margin-left:$fourth*3; }
+    .#{$namespace}offset-five-sixths       { margin-left:$sixth*5; }
+    .#{$namespace}offset-eleven-twelfths   { margin-left:$twelfth*11; }
+}
+
+@include grid-setup();
+
+@mixin media-query($media-query){
+    @if $media-query == tablet{
+        @media only screen and (min-width:$tablet-start) { @content; }
+    }
+
+    @if $media-query == laptop{
+        @media only screen and (min-width:$laptop-start) { @content; }
+    }
+
+    @if $media-query == desk{
+        @media only screen and (min-width:$desk-start) { @content; }
+    }
+
+    @if $media-query == desk-wide{
+        @media only screen and (min-width: $desk-wide-start) { @content; }
+    }
+}
+
+@include media-query(tablet){
+    @include grid-setup("tablet-");
+}
+
+@include media-query(laptop){
+    @include grid-setup("laptop-");
+}
+
+@include media-query(desk){
+    @include grid-setup("desk-");
+}
+
+@include media-query(desk){
+    @include grid-setup("desk-wide-");
+}
